@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Info Penting</title>
+        <style>
+            /* Cek Dari 600 keatas (1-600) */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                outline: none;
+            }
+
+            html {
+                scroll-behavior: smooth;
+                transition: all 0.5s ease;
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            body {
+                width: 100%;
+                min-height: 100vh;
+                background-color: lightgreen;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: aliceblue;
+            }
+            ul,
+            li {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            strong {
+                font-size: 1.15rem;
+                color: black;
+            }
+
+            .backtotop a {
+                height: 2.5rem;
+                padding: 0 1rem;
+                line-height: 2.5rem;
+                background-color: #6610f2;
+                color: white;
+                position: fixed;
+                right: 50px;
+                bottom: 50px;
+                border-radius: calc(2.5rem / 2);
+                border: 1px solid white;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .backtotop a:hover {
+                background-color: violet;
+                color: white;
+            }
+
+            ul#listitem {
+                width: 90%;
+                height: 85vh;
+                overflow-x: auto;
+                padding: 1.5rem 3rem;
+                border: 1px solid black;
+                border-radius: 10px;
+                background-color: aliceblue;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin: 0 0 3rem;
+                line-height: 1.75rem;
+            }
+
+            ul#listitem li {
+                width: 25%;
+                padding-right: 1.5rem;
+                word-wrap: break-word;
+                color: black;
+                list-style: disc;
+            }
+
+            ul#listitem li a:hover {
+                color: red;
+            }
+
+            li.boxmateri {
+                width: 100%;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin: 0 0 10rem;
+                padding: 0 0 1rem;
+            }
+
+            li h2,
+            h1#title {
+                text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+                display: block;
+                padding: 1rem 0;
+            }
+            pre {
+                width: 95%;
+                background-color: aliceblue;
+                overflow-x: auto;
+                border: 1px solid black;
+                border-radius: 10px;
+                padding: 1rem 0.75rem;
+                text-align: justify;
+                white-space: pre-wrap;
+                color: black !important;
+            }
+
+            pre#code {
+                width: 85%;
+                font-family: "Courier New", Courier, monospace;
+                white-space: pre;
+                margin: 2rem auto 1rem;
+                border: 1px solid black;
+                border-left: 10px solid lightgreen;
+                background-color: #00303d;
+                overflow-x: auto;
+                color: white !important;
+            }
+
+            pre#code.terminal {
+                text-align: justify;
+                white-space: pre-wrap;
+            }
+
+            span.indent {
+                margin: 0 1.5rem 0 0;
+            }
+
+            @media screen and (max-width: 1200px) {
+                pre {
+                    width: 975px;
+                }
+            }
+
+            @media screen and (max-width: 992px) {
+                pre {
+                    width: 725px;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                pre {
+                    width: 550px;
+                }
+
+                ul#listitem li {
+                    width: 50%;
+                }
+            }
+            @media screen and (max-width: 576px) {
+                pre {
+                    width: 450px;
+                }
+
+                .backtotop a {
+                    right: 20px;
+                    bottom: 30px;
+                }
+            }
+
+            @media screen and (max-width: 500px) {
+                pre {
+                    width: 375px;
+                }
+                ul#listitem li {
+                    width: 100%;
+                }
+            }
+            @media screen and (max-width: 400px) {
+                pre {
+                    width: 350px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Daftar Penjelasan</h1>
+        <ul id="listitem">
+            <strong>Learning</strong>
+            <li><a href="#1">Pengertian OOP</a></li>
+            <li><a href="#2">Istilah OOP di PHP</a></li>
+            <li><a href="#3">Membuat Class</a></li>
+            <li><a href="#4">Instansiasi Objek</a></li>
+            <li><a href="#5">Memahami Constructor dan Destructor</a></li>
+            <li><a href="#6">Modifier</a></li>
+            <li><a href="#7">Class Constant</a></li>
+            <li><a href="#8">Class Inheritance</a></li>
+            <li><a href="#9">Polymorphism</a></li>
+            <li><a href="#10">Override Method</a></li>
+            <li><a href="#11">Interface</a></li>
+            <strong>Tips & Trick</strong>
+            <li><a href="#lain1">Implode</a></li>
+            <li><a href="#lain2">Function Time()</a></li>
+            <li><a href="#lain3">Error Reporting</a></li>
+        </ul>
+        <ul>
+            <li class="boxmateri" id="1">
+                <h2>Pengertian OOP</h2>
+                <pre>
+<span class="indent"></span>OOP adalah singkatan dari Object Oriented Programming. OOP sendiri merupakan metode pemrograman yang lebih berorientasi pada objek. Sehingga, akan lebih sangat memudahkan di dalam membuat aplikasi. OOP lebih di dukung pada pemrograman JAVA dan C++. Tetapi, pada PHP juga sudah sangat di dukung pada versi PHP5.
+
+<span class="indent"></span>OOP atau yang merupakan singkatan dari object oriented programming adalah salah satu paradigma dalam pemrograman dimana kita memperlakukan kode yang kita tulis dan susun sebagai sebuah komponen yang dapat dicabut pasang dan berinteraksi antar komponen. Dibuat seunik mungkin agar suatu blok kode dapat digunakan ulang dan tidak memiliki redundansi penulisan. Serta kita juga dapat mencegah pembuatan sebuah fungsi atau prosedur yang sama tapi dimiliki oleh modul yang berbeda.
+
+Keunggulan OOP Pada PHP
+<span class="indent"></span>Kelebihan yang dimiliki OOP ini sebenarnya tidak hanya berlaku di PHP saja. Semua bahasa pemrograman juga sama efeknya. OOP diciptakan untuk mempermudah pengembangan suatu aplikasi.
+
+<span class="indent"></span>Tujuan utama OOP adalah: semua yang ingin dilakukan, dilakukan melalui objek. Objek disini pada dasarnya adalah potongan kecil kode yang terpisah, yang dapat menggabungkan data dan beharviors secara bersama-sama. Dalam suatu aplikasi, semua objek terhubung satu sama lain, mereka berbagi data di antara mereka dan menyelesaikan masalah.
+
+<span class="indent"></span>OOP dianggap lebih baik dari segi waktu pengembangan dan biaya pemeliharan aplikasi. Manfaat utama OOP dapat dilihat sebagai berikut:
+
+1. Reusability
+<span class="indent"></span>Objek adalah entitas yang memiliki kumpulan properti dan metode yang dapat berinteraksi dengan objek lainnya. Suatu objek biasanya memiliki ketergantungan dengan objek lain. Tetapi suatu objek biasanya dikembangkan untuk memecahkan serangkaian masalah tertentu. Jadi, ketika pengembang lain memiliki serangkaian masalah yang sama, mereka dapat menggunakan Class Anda ke Proyek mereka tanpa mempengaruhi alur kerja yang ada. Ini untuk mencegah istilah DRY (Don't Repeat Yourself). Dalam pemrograman fungsional atau modular, Reusability dimungkinkan tetapi terlalu komplek.
+
+2. Refactoring
+<span class="indent"></span>Ketika Anda perlu memperbaiki proyek, OOP memberikan manfaat maksimal. Karena, semua objek adalah entitas kecil dan mengandung properti dan metode yang merupakan bagian dari dirinya sendiri. Jadi refactoring relatif lebih mudah.
+
+3. Extensible
+<span class="indent"></span>Anda bisa memperluas objek dan membuat objek yang sama sekali baru serta mempertahankan semua properti dan metode yang diperlukan dari objek induknya dan kemudian memaparkan fitur baru. Ini biasanya disebut "Inheritance" dan ini merupakan fitur yang sangat penting dari OOP.
+
+4. Maintenance
+<span class="indent"></span>Object Oriented Code lebih mudah dipelihara karena pengkodean ditulis dengan format penjelasan sendiri. Sebagai contoh, ketika seorang pengembang ingin menambah fitur, merefaktorinnyam atau mendebugnya, mereka dapat dengan mudah mengetahui struktur pengkodean dan mempertahankan kode dari waktu ke waktu.
+
+5. Efficiency
+<span class="indent"></span>Konsep pemrograman berorientasi objek sebenarnya dikembangkan untuk efisiensi dan kemudahan proses pengembangan yang lebih baik. Beberapa pola desain dikembangkan untuk membuat kode yang lebih baik dan efisien. Selain itu di OOP, Anda dapat memikirkan solusi Anda dalam pendekatan yang jauh lebih baik daripada pemrograman prosedural.
+        </pre>
+            </li>
+            <li class="boxmateri" id="2">
+                <h2>Beberapa Istilah OOP di PHP</h2>
+                <pre>
+Berikut ini merupakan beberapa istilah umum OOP di PHP:
+
+1. Class
+<span class="indent"></span>Class merupakan purwarupa dari objek. Sebuah class mengandung kode program yang akan mendefinisikan bagaimana objek bekerja/berperilaku dan berinteraksi satu sama lain dengan objek lain. Setiap kali kamu membuat objek dalam PHP, kamu sebenarnya mengembangkan class. Jadi kadang-kadang dalam modul ini kita akan menamai sebuah objek sebagai class, karena keduanya sama-sama identik.
+
+2. Property
+<span class="indent"></span>Property adalah wadah di dalam class yang dapat menyimpan beberapa informasi. Tidak seperti bahasa lain, PHP tidak memeriksa jenis variabel properti. Property hanya dapat diakses di class itu sendiri, dengan subclassnya, atau oleh semua objek. Sederhananya, properti adalah variabel yang dideklarasikan di dalam class, tetapi tidak termasuk yang ada di dalam fungsi pada class.
+
+3. Method
+<span class="indent"></span>Method adalah fungsi di dalam class. Seperti properti, metode juga dapat diakses oleh ketiga jenis access modifier. Access modifier akan dijelaskan di pembahasan khusus.
+
+4. Encapsulation
+<span class="indent"></span>Enkapsulasi adalah konsep mekanisme yang mengikat kode bersama dengan data yang dimanipulasi, dan membuat keduanya aman dari kode lain yang tidak berhubungan secara langsung. Mekanisme pembungkusan data dan metode dalam satu kesatuan (yang kita sebut class) dikenal sebagai enkapsulasi.
+
+5. Polymorphism
+<span class="indent"></span>Objek bisa dari jenis apa pun. Objek diskrit dapat memiliki properti dan metode diskrit yang bekerja secara terpisah dengan objek lain. Namun seperangkat objek dapat diturunkan dari objek induk dan mempertahankan beberapa properti dari class induk. proses tersebut disebut polymorphism. Sederhananya, suatu objek dapat diubah menjadi beberapa objek lain yang mempertahankan beberapa perilakunya. Materi lebih detail terkait polymorphism di PHP dapat kamu temukan di pembahasan khusus.
+
+6. Inheritance
+<span class="indent"></span>Inheritance atau pewarisan merupakan mekanisme menurunkan/mewariskan sifat dari sebuah class ke class baru. Ketika kamu membuat class turunan dari class lain, subclass (yang diwarisi) memperoleh semua properti dan metode dari superclass (yang mewarisi). Subclass dapat menggunakan setiap metode yang ada pada superclass atau memperbaharuinya bila diperlukan yang disebut dengan istilah overriding.
+
+7. Coupling
+<span class="indent"></span>Kopling adalah perilaku bagaimana class saling bergantung satu sama lain. Arsitektur yang digabungkan secara longgar jauh lebih dapat digunakan kembali daripada objek yang digabungkan secara ketat. Coupling adalah masalah yang sangat penting untuk mendesain objek yang lebih baik.
+
+8. Design Patterns
+<span class="indent"></span>Pertama kali ditemukan oleh "Gang of Four" empat orang yang mengatur, design pattern atau pola desain hanyalah trik dalam pemrograman berorientasi objek untuk memecahkan set masalah yang sama dengan pendekatan yang lebih cerdas dan lebih mudah. Penggunaan Design Pattern (DP) dapat meningkatkan kinerja seluruh aplikasi Kamu dengan kode minimal yang ditulis oleh pengembang.
+
+9. Subclass
+<span class="indent"></span>Istilah yang sangat umum dalam OOP, dan kita akan menggunakan istilah ini di seluruh modul ini. Ketika suatu objek diturunkan dari objek lain, yang diturunkan disebut subclass dari mana ia berasal. Subclass disebut juga child class.
+
+10. Superclass
+<span class="indent"></span>Sebuah class yang disebut superclass berfungsi sebagai class induk dari satu atau beberapa subclass yang mewariskan objek. Untuk membuatnya sederhana, ketika Kamu memperluas objek, objek yang Kamu perluas adalah superclass dari objek yang baru diperluas. Superclass dikenal juga dengan istilah parent class.
+
+11. Instance
+<span class="indent"></span>Setiap kali kamu membuat objek dengan memanggil konstruktornya, itu disebut instance atau instansiasi. Sederhananya, setiap kali Kamu menulis sesuatu seperti $var = new AnyClass(); itu artinya kamu sedang membuat intance objek dari class AnyClass.
+            </pre>
+            </li>
+            <li class="boxmateri" id="3">
+                <h2>Membuat Class</h2>
+                <pre>
+<span class="indent"></span>Class di dalam OOP digunakan untuk membuat sebuah kerangka kerja atau blueprint. Pada PHP, class ditulis dengan awalan sintaks class dan kemudian baru diikuti dengan nama classnya. Berikut merupakan contoh penulisan class.
+<pre id="code">
+// Gunakan kapital diawal untuk nama kelas.
+class Classname {
+    // Isi dari class    
+}</pre>
+<strong>Anatomi Class</strong>
+<span class="indent"></span>Sebuah class setidaknya membungkus beberapa komponen seperti berikut:
+
+1. attribute, yakni variabel yang ada di dalam class. Attribute dapat diakses dari semua method di dalam class tersebut dan tidak dapat diakses dari luar class.
+2. method, adalah istilah untuk function yang ada di dalam class. Sekalipun sebuah method memiliki nama yang sama dengan method di class lain, dia tidak akan dianggap sebagai method yang sama.
+3. constructor, adalah method khusus yang akan selalu dieksekusi begitu sebuah class diinstansiasi atau dibuat objeknya.
+<pre id="code">
+class Lingkaran {
+
+    private $radius;
+
+    // Method __construct akan dipelajari lebih lanjut di materi kedepan
+    function __construct($radius) 
+    {
+        $this->radius = $radius;
+    }
+
+    function hitungLuas()
+    {
+        return 22 / 7 * 2 * $this->radius;
+    }
+
+    function hitungKeliling()
+    {
+        return 22 / 7 * $this->radius * $this->radius;
+    }
+}
+</pre>
+<span class="indent"></span>Pada contoh kode di atas, $radius adalah property. Fungsi hitungLuas(), hitungKeliling() dan __construct() adalah method. Fungsu __construct() adalah fungsi khusus yang dinamakan method constructor.
+                </pre>
+            </li>
+            <li class="boxmateri" id="4">
+                <h2>Instansiasi Objek</h2>
+                <pre>
+<span class="indent"></span>Istilah objek dalam OOP merujuk pada hasil cetak atau hasil 'konkrit' dari class. Bila kita memiliki sebuah class Mobil, maka objectnya bisa berupa: MobilSaya, MobilKamu dan lain-lain. Object dari class Mobil akan memiliki seluruh komponen berupa property dan method dari class tersebut.
+
+<span class="indent"></span>Proses mencetak objek dari sebuah class disebut dengan instansiasi (atau instantiation dalam bahasa inggris). Pada PHP, proses instansiasi dilakukan dengan menggunakan sintaks new. Hasil cetakan class akan disimpan dalam variabel untuk selanjutnya digunakan dalam proses pada program.
+
+Berikut ini adalah contohnya:
+<pre id="code">
+class Mobil {
+
+    private $statusBensin = false;
+
+    public function isiBensin()
+    {
+        $this->statusBensin = true;
+    }
+
+    public function nyalakan()
+    {
+        if($this->statusBensin)
+            return "Mobil menyala";
+
+        return "Bensin habis";
+    }
+}
+
+// Instansiasi object MobilSaya dari class Mobil
+$MobilSaya = new Mobil();
+
+// Menjalankan sebuah method
+echo $MobilSaya->isiBensin();
+echo $MobilSaya->nyalakan();
+</pre>
+Sebuah class baru dapat digunakan setelah dibuat ke dalam bentuk objek melalui proses instansiasi. Perhatikan kembali contoh kode berikut:
+
+<span class="indent"></span>Sesudah sebuah class terinstansiasi, maka dia akan disimpan ke variabel yang kita gunakan. Pada kode di atas, variabelnya adalah $MobilSaya, lalu kita dapat menggunakan method yang ada di dalamnya untuk melakukan operasi yang kita inginkan.
+
+<strong>Menggunakan Ulang Objek</strong>
+Kita dapat membuat sebuah class yang objeknya dapat digunakan secara berulang. Perhatikan contoh berikut:
+<pre id="code">
+class Persegi {
+
+    public $panjang;
+    public $lebar;
+
+    function __construct($panjang, $lebar) 
+    {
+        $this->panjang = $panjang;
+        $this->lebar = $lebar;
+    }
+
+    function hitungLuas()
+    {
+        return $this->panjang * $this->lebar;
+    }
+
+    function hitungKeliling()
+    {
+        return (2 * $this->panjang) + (2 * $this->lebar);
+    }
+}
+</pre>
+<span class="indent"></span>Bila class di atas kita instansiasi, maka kita akan mendapatkan sebuah objek yang dapat digunakan untuk menghitung luas dan keliling persegi. Kita juga dapat mengatur ulang nilai property panjang dan lebar untuk perhitungan selanjutnya.
+<pre id="code">
+class Persegi {
+
+    public $panjang;
+    public $lebar;
+
+    function __construct($panjang, $lebar) 
+    {
+        $this->panjang = $panjang;
+        $this->lebar = $lebar;
+    }
+
+    function hitungLuas()
+    {
+        return $this->panjang * $this->lebar;
+    }
+
+    function hitungKeliling()
+    {
+        return (2 * $this->panjang) + (2 * $this->lebar);
+    }
+}
+
+$persegi = new Persegi(10, 5);
+echo "Luas: " . $persegi->hitungLuas();
+echo "Keliling: " . $persegi->hitungKeliling();
+
+// Mengatur ulang isi property
+$persegi->panjang = 20;
+$persegi->lebar = 12;
+
+// Memanggil ulang method dengan properti value yang berbeda, maka hasilnya beda.
+echo "Luas: " . $persegi->hitungLuas();
+echo "Keliling: " . $persegi->hitungKeliling();
+</pre>
+<span class="indent"></span>Pada contoh kode di atas, kita set ulang property panjang dan lebar dari objek $persegi sehingga hasil perhitungan selanjutnya akan menggunakan nilai property yang baru. Dengan demikian kita tidak perlu membuat objek baru setiap kali hendak melakukan perhitungan.
+                </pre>
+            </li>
+            <li class="boxmateri" id="5">
+                <h2>Memahami Constructor dan Destructor</h2>
+                <pre>
+<span class="indent"></span>Tidak hanya constructor yang ada dalam suatu life cycle sebuah class. Ada juga destructor yang berperan dalam mengeksekusi kode bila ketika suatu class akan dihancurkan dari memori atau mengalami proses garbage collector.
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class DB {
+
+    private $dbConnectionStatus = "close";
+
+    function __construct() 
+    {
+        $this->dbConnectionStatus = "connecting";
+    }
+
+    function connect()
+    {
+        $this->dbConnectionStatus = "open";
+    }
+
+    function getConnectionStatus()
+    {
+        return $this->dbConnectionStatus;
+    }
+
+    function __destruct()
+    {
+        $this->dbConnectionStatus = "close";
+        echo "status: ".$this->dbConnectionStatus."<span class="tagbr"></span>";
+    }
+}
+
+$db = new DB();
+echo $db->getConnectionStatus(). "<span class="tagbr"></span>";
+$db->connect();
+echo $db->getConnectionStatus(). "<span class="tagbr"></span>";
+</pre>
+Bila kita jalankan akan muncul output seperti berikut:
+<pre id="code">
+$ php const-dest-1.php
+connecting
+open
+status: close!
+</pre>
+Dengan demikian, construtor akan selalu dipanggil begitu class berhasil diinstansiasi, sedangkan destructor akan selalu dipanggil sesaat objek berhasil masuk dalam garbage collector.
+
+<strong>Batasan Constructor</strong>
+<span class="indent"></span>Selain itu constructor dari suatu class induk tidak dapat dijalankan bila tidak dipanggil dari class anak. Jadi kita harus memanggil constructor dari suatu class induk dengan cara parent::__construct() .
+
+Mari kita perhatikan contoh kode berikut :
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Controller {
+
+    function __construct()
+    {
+        echo "Ini di dalam konstruktor Controller!<span class="tagbr"></span>";
+    }
+}
+
+class HomeController extends Controller {
+
+    function __construct()
+    {
+        parent::__construct();
+        echo "Ini di dalam konstruktor HomeController!<span class="tagbr"></span>";
+    }
+}
+
+$hc = new HomeController();
+</pre>
+Bila kita jalankan akan muncul output seperti berikut:
+<pre id="code">
+$ php const-dest-2.php
+Ini di dalam konstruktor Controller!
+Ini di dalam konstruktor HomeController!
+</pre>
+Namun bila kita komentari bagian kode yang memanggil constructor induk, maka output-nya akan seperti ini:
+<pre id="code">
+$ php const-dest-2.php
+Ini di dalam konstruktor HomeController!
+</pre>
+                </pre>
+            </li>
+            <li class="boxmateri" id="6">
+                <h2>Modifier</h2>
+                <pre>
+<span class="indent"></span>Setiap variabel yang di dalam class atau attribute memiliki tingkat akses yang dapat diakses dari luar class atau bahkan tidak dapat diakses sama sekali. Maksudnya adalah ketika kamu mencoba mengubah isi atribut langsung tanpa melewati suatu method maka hal ini dapat kamu lakukan bila tingkat akses suatu variabel atau atribut adalah public.
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Persegi {
+    public $panjang;
+    public $lebar;
+
+    function __construct($p, $l) 
+    {
+        $this->panjang = $p;
+        $this->lebar = $l;
+    }
+
+    public function hitungLuas()
+    {
+        return $this->panjang * $this->lebar;
+    }
+
+    public function hitungKeliling()
+    {
+        return (2 * $this->panjang) + (2 * $this->lebar);
+    }
+}
+
+$p = new Persegi(5, 10);
+
+printf("Luas: %s\n", $p->hitungLuas());
+printf("Keliling: %s\n", $p->hitungKeliling());
+
+$p->panjang = 20;
+$p->lebar = 30;
+
+printf("Luas: %s\n", $p->hitungLuas());
+printf("Keliling: %s\n", $p->hitungKeliling());
+</pre>
+<span class="indent"></span>Bisa kamu lihat pada potongan diatas, baik dari dalam method yang ada di dalam class atau dari luar class, atribut panjang dan lebar dapat diubah tanpa terjadi error apapun. Begitulah sifat tingkat akses public, dapat membuat suatu atribut diakses dari luar.
+
+Potongan kode diatas bila kita jalankan akan muncul seperti berikut:
+<pre id="code">
+$ php attribute-public.php
+Luas: 50
+Keliling: 30
+Luas: 600
+Keliling: 100
+</pre>
+<strong>Modifier Protected</strong>
+<span class="indent"></span>Sekarang kita coba untuk menelaah tingkat akses protected , tingkat akses ini hanya dapat membuat suatu atribut diakses dari class anaknya, jadi tidak dapat kita ubah nilainya dari luar class.
+
+Mari kita perhatikan contoh kode berikut :
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Persegi {
+    protected $panjang;
+    protected $lebar;
+
+    function __construct($p, $l) 
+    {
+        $this->panjang = $p;
+        $this->lebar = $l;
+    }
+
+    public function hitungLuas()
+    {
+        return $this->panjang * $this->lebar;
+    }
+
+    public function hitungKeliling()
+    {
+        return (2 * $this->panjang) + (2 * $this->lebar);
+    }
+}
+
+class Balok extends Persegi {
+    public $tinggi;
+
+    function __construct($p, $l, $t) 
+    {
+        $this->panjang = $p;
+        $this->lebar = $l;
+        $this->tinggi = $t;
+    }
+
+    public function hitungVolume()
+    {
+        return $this->panjang * $this->lebar * $this->tinggi;
+    }
+
+    public function hitungLuasPermukaan()
+    {
+        return (4 * ($this->panjang * $this->lebar ) ) + (2 * ( $this->lebar * $this->lebar ));
+    }
+}
+
+$p = new Balok(5, 10, 2);
+
+printf("Volume: %s\n", $p->hitungVolume());
+printf("Luas Permukaan: %s\n", $p->hitungLuasPermukaan());
+
+// Lepas tanda komentar di bawah baris kode berikut
+// $p->panjang = 7;
+// $p->lebar = 3;
+
+$p->tinggi = 10;
+
+printf("Volume: %s\n", $p->hitungVolume());
+printf("Luas Permukaan: %s\n", $p->hitungLuasPermukaan());
+</pre>
+Pada potongan kode berikut kita dapat melihat ada beberapa baris yang menggunakan atribut panjang dan lebar tapi kita tidak melihat pendefinisiannya di dalam class ini:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Balok extends Persegi {
+    public $tinggi;
+
+    function __construct($p, $l, $t) 
+    {
+        $this->panjang = $p;
+        $this->lebar = $l;
+        $this->tinggi = $t;
+    }
+
+    public function hitungVolume()
+    {
+        return $this->panjang * $this->lebar * $this->tinggi;
+    }
+
+    public function hitungLuasPermukaan()
+    {
+        return (4 * ($this->panjang * $this->lebar ) ) + (2 * ( $this->lebar * $this->lebar ));
+    }
+}
+</pre>
+Mengapa? karena kita telah menggunakan mekanisme protected dalam menggunakan atribut yang ada pada class induk.
+
+Potongan kode diatas bila kita jalankan akan muncul seperti berikut:
+<pre id="code">
+$ php attribute-protected.php
+Volume: 100
+Luas Permukaan: 400
+Volume: 500
+Luas Permukaan: 400
+</pre>
+Sekarang mari kita buka bagian baris yang dikomentari dari kode diatas:
+<pre id="code">
+// Lepas tanda komentar di bawah baris kode berikut
+$p->panjang = 7;
+$p->lebar = 3;
+</pre>
+Dan bila kita jalankan maka akan muncul error berikut:
+<pre id="code" class="terminal">
+Volume: 100
+Luas Permukaan: 400
+
+Fatal error: Uncaught Error: Cannot access protected property Balok::$panjang in C:\xampp\htdocs\php-oop\source code\03\atribut-protected.php:52 Stack trace: #0 {main} thrown in C:\xampp\htdocs\php-oop\source code\03\atribut-protected.php on line 52
+</pre>
+<span class="indent"></span>Seperti yang sudah dijelaskan, karena protected dapat membuat suatu atribut hanya dapat diakses dan diubah di dalam class anak saja.
+
+<strong>Modifier Private</strong>
+<span class="indent"></span>Sekarang kita coba untuk menelaah tingkat akses private, tingkat akses ini hanya dapat membuat suatu atribut diakses dari class-nya sendiri, jadi tidak dapat kita ubah nilainya dari luar class maupun dari class anaknya.
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Car {
+    private $wheel;
+    private $machine;
+    private $seat;
+
+    public function setWheel($wd)
+    {
+        $this->wheel = $wd;
+    }
+
+    public function setMachine($machine)
+    {
+        $this->machine = $machine;
+    }
+
+    public function setSeat($seat)
+    {
+        $this->seat = $seat;
+    }
+
+    public function getWheel()
+    {
+        return $this->wheel;
+    }
+
+    public function getMachine()
+    {
+        return $this->machine;
+    }
+
+    public function getSeat()
+    {
+        return $this->seat;
+    }
+}
+
+class Truck extends Car {
+
+    public function __construct (){
+        echo "Object Truck dibuat ...<span class="tagbr"></span>";
+    }
+}
+
+class Excavator extends Car {
+
+    public function __construct (){
+        echo "Object Excavator dibuat ...<span class="tagbr"></span>";
+    }
+}
+
+class SportCar extends Car {
+
+    public function __construct (){
+        echo "Object SportCar dibuat ...<span class="tagbr"></span>";
+    }
+}
+
+$t = new Truck();
+$t->setWheel(6);
+$t->setMachine("mesin truk");
+$t->setSeat(2);
+echo "Wheel: ".$t->getWheel()."<span class="tagbr"></span>";
+echo "Machine: ".$t->getMachine()."<span class="tagbr"></span>";
+echo "Seat: ".$t->getSeat()."<span class="tagbr"></span>";
+
+$e = new Excavator();
+$e->setWheel(8);
+$e->setMachine("mesin excavator");
+$e->setSeat(1);
+
+// Lepas tanda komentar di bawah baris kode berikut
+//$e->wheel = 8;
+//$e->seat = 6;
+//print_r($e);
+//echo "<span class="tagbr"></span>";
+
+echo "Wheel: ".$e->getWheel()."<span class="tagbr"></span>";
+echo "Machine: ".$e->getMachine()."<span class="tagbr"></span>";
+echo "Seat: ".$e->getSeat()."<span class="tagbr"></span>";
+
+$s = new SportCar();
+$s->setWheel(4);
+$s->setMachine("mesin sport car v4");
+$s->setSeat(2);
+echo "Wheel: ".$s->getWheel()."<span class="tagbr"></span>";
+echo "Machine: ".$s->getMachine()."<span class="tagbr"></span>";
+echo "Seat: ".$s->getSeat()."<span class="tagbr"></span>";
+</pre>
+<span class="indent"></span>Pada potongan diatas, kita menyiasati untuk pengaksesan suatu atribut private dengan membungkusnya melalui suatu method yang memiliki tingkat akses public. Tingkat akses pun tidak hanya dapat dilakukan pada atribut, juga dapat dilakukan pada suatu method.
+
+Potongan kode diatas bila kita jalankan akan muncul seperti berikut:
+<pre id="code" class="terminal">
+$ php attribute-private.php
+Wheel: 6
+Machine: mesin truk
+Seat: 2
+Wheel: 8
+Machine: mesin excavator
+Seat: 1
+Wheel: 4
+Machine: mesin sport car v4
+Seat: 2
+</pre>
+Sekarang mari kita buka bagian baris yang dikomentari dari kode diatas:
+<pre id="code" class="terminal">
+// Lepas tanda komentar di bawah baris kode berikut
+$e->wheel = 8;
+$e->seat = 6;
+print_r($e);
+echo "<span class="tagbr"></span>";
+</pre>
+Dan bila kita jalankan maka akan muncul keanehan seperti berikut:
+<pre id="code" class="terminal">
+Wheel: 6
+Machine: mesin truk
+Seat: 2
+Excavator Object ( [wheel:Car:private] => 8 [machine:Car:private] => mesin excavator [seat:Car:private] => 1 [wheel] => 8 [seat] => 6 ) 
+Wheel: 8
+Machine: mesin excavator
+Seat: 1
+Wheel: 4
+Machine: mesin sport car v4
+Seat: 2
+</pre>
+Walaupun diubah dari luar, nilainya tak dapat diubah hingga ke internal objek tersebut.
+                </pre>
+            </li>
+            <li class="boxmateri" id="7">
+                <h2>Class Constant</h2>
+                <pre>
+<span class="indent"></span>Mudah-mudahan kamu sudah tahu bagaimana cara membuat konstanta dalam PHP menggunakan kata kunci define untuk mendefinisikan (nama konstanta dan nilai konstanta). Tetapi, untuk membuat konstanta didalam kelas, kamu harus menggunakan kata kunci const.
+
+<span class="indent"></span>Konstanta sebenarnya berfungsi seperti variabel statis, satu-satunya perbedaan adalah bahwa mereka hanya baca atau hanya sekali mendefinisikan nilainya dan tidak dapat diubah setelah itu. Mari kita lihat bagaimana kita bisa membuat konstanta dan menggunakannya:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class HitungLingkaran
+{
+    const PHI = 3.14;  // Kamu gak harus pakai dollar untuk membuat konstanta
+    public $jari;
+    public $luas;
+
+    // Setter jari jari.
+    public function setJari($jari)
+    {
+        $this->jari = $jari;
+    }
+
+    public function hitung()
+    {
+        // Menghitung luas.
+        $this->luas = self::PHI * ($this->jari ^ 2);
+        return $this->luas;
+    }
+}
+</pre>
+<span class="indent"></span>Kelas diatas kita bangun untuk menghitung luas lingkaran. Kita tahu bahwa rumus luas lingkaran adalah PHI dikali jari-jari pangkat dua. Namun kita akan fokuskan pada penggunaan konstanta ya. Disitu kita define konstanta PHI tanpa dollar, lalu mengisinya dengan nilai 3.14. Selanjutnya kita panggil konstanta pada method hitung dengan self::PHI. Berbeda dengan memanggil properti lain bukan? Terlihat seperti sedang memanggil properti static dengan penggunaan double titik dua ::.
+
+<span class="indent"></span>Selanjutnya mari kita lengkapi script diatas menjadi seperti ini :
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class HitungLingkaran
+{
+const PHI = 3.14;  // Kamu gak harus pakai dollar untuk membuat konstanta
+public $jari;
+public $luas;
+
+// Setter jari jari.
+public function setJari($jari)
+{
+    $this->jari = $jari;
+}
+
+public function hitung()
+{
+    // Menghitung luas.
+    $this->luas = self::PHI * ($this->jari ^ 2);
+    return $this->luas;
+}
+}
+
+// Kita instansiasi 
+$lingkaran = new HitungLingkaran;
+
+// Kita set jarinya.
+$lingkaran->setJari(5);
+
+// Lalu hitung
+echo $lingkaran->hitung();
+?>
+</pre>
+Output kode diatas adalah :
+<pre id="code" class="terminal">
+21.98
+</pre>
+Cukup mudah bukan? jika output keluar, selamat kamu sudah bisa menggunakan konstanta pada OOP.
+                </pre>
+            </li>
+            <li class="boxmateri" id="8">
+                <h2>Class Inheritance</h2>
+                <pre>
+<span class="indent"></span>Apa itu inheritance class? adalah sebuah mekanisme dimana kita dapat menggunakan variabel atau method yang dimiliki class induk kepada class anaknya. Kenapa ada mekanisme semacam ini di OOP? untuk mencegah redundansi tentunya.
+
+<span class="indent"></span>Bayangkan bila kamu memiliki class yang method - method-nya hampir sama baik jumlah ataupun tujuannya, serta memiliki variabel yang sama juga kegunaannya. Dalam OOP kita dapat mencegah redundansi penulisan kode tersebut melalui inheritance class.
+
+<span class="indent"></span>Sehingga nantinya class anak tidak perlu menulis ulang method yang ada di class induk selama method yang sudah tersedia masih sesuai dengan tujuan yang diperlukan. Bila tujuan sudah berbeda baik operasi, parameter, dan nilai yang dikembalikan tapi namanya masih ingin sama. Maka harus dilakukan mekanisme yang namanya overriding method.
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Hero {
+
+    protected $healthPoint;
+    protected $magicPoint;
+    protected $name;
+
+    public function sihir () {
+        echo "$this->name menyerang dengan sihir<span class="tagbr"></span>";
+    }
+
+    public function serang () {
+        echo "$this->name menyerang biasa<span class="tagbr"></span>";
+    }
+
+    public function tahan () {
+        echo "$this->name bertahan dari serangan musuh<span class="tagbr"></span>";
+    }
+
+    public function getHealthPoint() {
+        return $this->healthPoint;
+    }
+
+    public function getMagicPoint ()
+    {
+        return $this->magicPoint;
+    }
+}
+
+class SunGoKong extends Hero {
+
+    public function __construct()
+    {
+        $this->name = "Sun Go Kong";
+        $this->healthPoint = 9700;
+        $this->magicPoint = 1100;
+    }   
+}
+
+class Susanoo extends Hero {
+    public function __construct()
+    {
+        $this->name = "Susanoo The King of Light";
+        $this->healthPoint = 9850;
+        $this->magicPoint = 1280;
+    }   
+}
+
+class Ogre extends Hero{
+    public function __construct()
+    {
+        $this->name = "Ogre";
+        $this->healthPoint = 8700;
+        $this->magicPoint = 900;
+    }   
+}
+
+$gokong = new SunGoKong();
+$susanoo = new Susanoo();
+$ogre = new Ogre();
+
+$gokong->serang();
+$gokong->sihir();
+$gokong->tahan();
+echo "HP: ".$gokong->getHealthPoint()."<span class="tagbr"></span>";
+echo "MP: ".$gokong->getMagicPoint()."<span class="tagbr"></span>";
+
+$susanoo->serang();
+$susanoo->sihir();
+$susanoo->tahan();
+echo "HP: ".$susanoo->getHealthPoint()."<span class="tagbr"></span>";
+echo "MP: ".$susanoo->getMagicPoint()."<span class="tagbr"></span>";
+
+$ogre->serang();
+$ogre->sihir();
+$ogre->tahan();
+echo "HP: ".$ogre->getHealthPoint()."<span class="tagbr"></span>";
+echo "MP: ".$ogre->getMagicPoint()."<span class="tagbr"></span>";
+</pre>
+<span class="indent"></span>Kita bisa melihat sendiri kan hanya dengan menggunakan inheritance class, kita dapat membuat class dengan nama yang berbeda - beda namun dengan menggunakan sejumlah method yang sama dari class induk. Untuk melakukan ini, kita harus menggunakan keyword extends terhadap class anak dan menujuk class induk yang diinginkan.
+
+<span class="indent"></span>Selain itu pada potongan kode diatas, kita dapat membuat beberapa class dengan nama berbeda dan default value-nya yang berbeda pula untuk menciptakan karakteristik yang tidak sama antara class yang disediakan.
+
+Potongan kode diatas bila kita jalankan akan muncul seperti berikut:
+<pre id="code" class="terminal">
+$ php basic-inheritance.php
+Sun Go Kong menyerang biasa
+Sun Go Kong menyerang dengan sihir
+Sun Go Kong bertahan dari serangan musuh
+HP: 9700
+MP: 1100
+Susanoo The King of Light menyerang biasa
+Susanoo The King of Light menyerang dengan sihir
+Susanoo The King of Light bertahan dari serangan musuh
+HP: 9850
+MP: 1280
+Ogre menyerang biasa
+Ogre menyerang dengan sihir
+Ogre bertahan dari serangan musuh
+HP: 8700
+MP: 900
+</pre>
+<strong>Melakukan N-Inheritance</strong>
+<span class="indent"></span>Tidak berbeda jauh dengan inheritance class yang telah dipaparkan sebelumnya. Hanya saja N-Inheritance ini dilakukan terhadap class yang sudah melakukan inheritance terhadap suatu class induk. Sehingga class tersebut menjadi induk dari class lain. Atau kita dapat menganggapnya melakukan inheritance beberapa kali.
+
+<span class="indent"></span>Inheritance macam ini biasa dilakukan bila ada suatu class yang harus dibuat generik namun dia dapat memilih siapa class induknya. Tergantung kebutuhan.
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class DB {
+    public function getConnection() {
+        echo "Memanggil getConnection()...<span class="tagbr"></span>";
+    }
+
+    public function getConfig() {
+        echo "Memanggil getConfig()...<span class="tagbr"></span>";
+    }
+}
+
+class BaseModel extends DB {
+    public function select () {
+        echo "Melakukan query select...<span class="tagbr"></span>";
+    }
+
+    public function selectByID($id) {
+        echo "Melakukan query select by id - $id...<span class="tagbr"></span>";
+    }
+
+    public function insert () {
+        echo "Melakukan query insert...<span class="tagbr"></span>";
+    }
+
+    public function update () {
+        echo "Melakukan query update...<span class="tagbr"></span>";
+    }
+
+    public function delete () {
+        echo "Melakukan query delete...<span class="tagbr"></span>";
+    }
+}
+
+class TransactionModel extends BaseModel {
+    public function getDailyReport() {
+        echo "Menghasilkan daily report <span class="tagbr"></span>";
+    }
+
+    public function getMonthlyReport() {
+        echo "Menghasilkan monly report";
+    }
+}
+
+class UserModel extends BaseModel {
+    public function authenticate() {
+        echo "Melakukan authentikasi user <span class="tagbr"></span>";
+    }
+
+    public function changePassword() {
+        echo "Melakukan penggantian password";
+    }
+
+    public function updateProfile() {
+        echo "Melakukan update password";
+    }
+}
+
+$tm = new TransactionModel();
+$tm->getConnection();
+$tm->getConfig();
+$tm->select();
+$tm->selectByID(10);
+$tm->insert();
+$tm->update();
+$tm->delete();
+$tm->getDailyReport();
+$tm->getMonthlyReport();
+
+$um = new UserModel();
+$um->getConnection();
+$um->getConfig();
+$um->select();
+$um->selectByID(10);
+$um->insert();
+$um->update();
+$um->delete();
+$um->authenticate();
+$um->changePassword();
+$um->updateProfile();
+</pre>
+<span class="indent"></span>Pada kode diatas ada sebuah class bernama DB. Class tersebut kita simpan karena digunakan untuk menyimpan konfigurasi ke suatu database. Lalu ada class BaseModel yang mewarisi apa saja yang ada di class DB. Barulah setelah itu model - model yang memiliki method yang tidak sama dengan model lain mewarisi BaseModel karena pada dasarnya setiap class memiliki method yang sama untuk tujuan CRUD.
+
+Potongan kode diatas bila kita jalankan akan muncul seperti berikut:
+<pre id="code" class="terminal">
+$ php n-inheritance.php
+Memanggil getConnection()...
+Memanggil getConfig()...
+Melakukan query select...
+Melakukan query select by id - 10...
+Melakukan query insert...
+Melakukan query update...
+Melakukan query delete...
+Menghasilkan daily report 
+Menghasilkan monly reportMemanggil getConnection()...
+Memanggil getConfig()...
+Melakukan query select...
+Melakukan query select by id - 10...
+Melakukan query insert...
+Melakukan query update...
+Melakukan query delete...
+Melakukan authentikasi user 
+Melakukan penggantian passwordMelakukan update password
+</pre>
+                </pre>
+            </li>
+            <li class="boxmateri" id="9">
+                <h2>Polymorphism</h2>
+                <pre>
+<span class="indent"></span>Seperti yang telah jelaskan sebelumnya, polimorfisme adalah proses menciptakan beberapa objek dari kelas tertentu. Sebagai contoh, lihat contoh kasus berikut. Kita membutuhkan tiga kelas yaitu Emailer, ExtendedEmailer dan HtmlEmailer (anggap saja kelas ini telah dibuat dengan berbagai method didalamnya). Mari kita lihat kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+include("Emailer.php");
+include("ExtendedEmailer.php");
+include("HtmlEmailer.php");
+
+$Emailer = new Emailer("hani@codepolitan.com");
+$ExtendedEmailer = new ExtendedEmailer();
+$HtmlEmailer = new HtmlEmailer("hani@codepolitan.com");
+
+if ($ExtendedEmailer instanceof Emailer)
+    echo "Extended Emailer is Derived from Emailer.<br/>";
+
+if ($HtmlEmailer instanceof Emailer  )
+    echo "HTML Emailer is also Derived from Emailer.<br/>";
+
+// Tidak akan keluar output karena Emailer bukan instance HTMLEmailer
+if ($Emailer instanceof HtmlEmailer )
+    echo "Emailer is Derived from HTMLEmailer.<br/>";
+
+// Tidak akan keluar output karena HTMLEmailer bukan instance Extended
+if ($HtmlEmailer instanceof ExtendedEmailer  )
+    echo "HTML Emailer is Derived from Emailer.<br/>";
+<span class="tagphptutup"></span>
+</pre>
+Jika kamu menjalankan skrip di atas, kamu akan menemukan output berikut:
+<pre id="code" class="terminal">
+Extended Emailer is Derived from Emailer.
+HTML Emailer is also Derived from Emailer.
+</pre>
+Itulah contoh penggunaan polymorphism, yaitu penggunaan method yang sama dengan fungsi yang berbeda-beda.
+                </pre>
+            </li>
+            <li class="boxmateri" id="10">
+                <h2>Override Method</h2>
+                <pre>
+<span class="indent"></span>Sesuai dengan namanya, overriding, kita dapat menimpa sebuah cara kerja suatu method di dalam class yang kita extend. Lalu ditimpa dengan logika yang kita butuhkan atau dimodifikasi. Namun salah satu ketentuanya adalah nama dan argumen yang dibutuhkan harus sama.
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Animal {
+
+    public function speak() {
+        echo "Hewan sedang bersuara!<br/>";
+    }
+}
+
+class Dog extends Animal {
+
+    public function speak() {
+        echo "Guk guk guk guk!<br/>";
+    }
+}
+
+$d = new Dog();
+$d->speak();
+</pre>
+<span class="indent"></span>Pada kode diatas kita harus mengimplementasikan method speak() dari class Animal di-override di dalam class Dog. Bila kita jalankan akan muncul output seperti berikut:
+<pre id="code" class="terminal">
+$ php override-1.php
+Guk guk guk guk!
+</pre>
+Bukannya keluar output yang sebelumnya, tapi output yang ditampilkan adalah output hasil override.
+
+<strong>Menggunakan Method Induk Sebelum dilakukan Overriding</strong>
+<span class="indent"></span>Untuk menggunakan fungsionalitas suatu method dari class induk, kita dapat membuat method lain dan memanggil method speak() dengan menggunakan tanda parent::speak() .
+
+Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+class Animal {
+
+    public function speak() {
+        echo "Hewan sedang bersuara!<br/>";
+    }
+}
+
+class Dog extends Animal {
+
+    public function speak() {
+        echo "Guk guk guk guk!<br/>";
+    }
+
+    public function verboseSpeak()
+    {
+        parent::speak();
+        $this->speak();
+    }
+}
+
+$d = new Dog();
+$d->speak();
+$d->verboseSpeak();
+</pre>
+Sekarang mari kita jalankan dan lihat perbedaannya:
+<pre id="code" class="terminal">
+$ php override-2.php
+Guk guk guk guk!
+Hewan sedang bersuara!
+Guk guk guk guk!
+</pre>
+Bila kita gunakan parent::speak() maka kita dapat memanggil fungsionalitas dari class induk sebelum di-override.
+                </pre>
+            </li>
+            <li class="boxmateri" id="11">
+                <h2>Interface</h2>
+                <pre>
+<span class="indent"></span>Interface adalah sebuah aturan dalam OOP dimana kita dapat membuat sebuah ketentuan yang harus selalu diimplementasikan dalam suatu kelas. Misal terdapat sebuah fungsionalitas dari CRUD data Posts/Artikel. Di dalamnya terdapat method select, insert, update, dan delete.
+
+<span class="indent"></span>Bila salah satunya tidak diimplementasikan oleh programmer, maka saat runtime atau kompilasi akan terjadi error, karena programmer tersebut menyalahi aturan yang ditentukan dalam pembuatan suatu class
+
+Mari kita perhatikan contoh kode berikut :
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Interface pada sebuah CRUD
+interface Crud {
+    public function insert();
+    public function update();
+    public function select();
+    public function delete();
+}
+
+// Buah class yang mengurusi data Posts, misal artikel.
+class Posts implements Crud {
+    public function insert() {
+        echo "Call method insert ..\n";
+    }
+
+    public function update() {
+        echo "Call method update ..\n";
+    }
+
+    public function select() {
+        echo "Call method select ..\n";
+    }
+}
+
+$posts = new Posts;
+$posts->insert();
+$posts->update();
+$posts->select();
+<span class="tagphptutup"></span>
+</pre>
+Pada kode diatas kita membuat sebuah interface Crud dan class Posts. Ceritanya Posts bertugas mengolah data tabel posts pada sebuah database. Bisa kita lihat, class Posts tidak membuat method delete. Kode diatas akan menghasilkan error seperti ini :
+<pre id="code" class="terminal">
+Fatal error: Class Posts contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Crud::delete) in /path/to/file.php on line 14
+</pre>
+Nah, disini kita belajar bahwa kita harus implementasi semua method pada interface setelah meng-implements. Mari kita perbaiki lagi kode jadi seperti ini :
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Interface pada sebuah CRUD
+interface Crud {
+    public function insert();
+    public function update();
+    public function select();
+    public function delete();
+}
+
+// Buah class yang mengurusi data Posts, misal artikel.
+class Posts implements Crud {
+    public function insert() {
+        echo "Call method insert ..\n";
+    }
+
+    public function update() {
+        echo "Call method update ..\n";
+    }
+
+    public function select() {
+        echo "Call method select ..\n";
+    }
+
+    public function delete() {
+        echo "Call method delete ..\n";
+    }
+}
+
+$posts = new Posts;
+$posts->insert();
+$posts->update();
+$posts->select();
+$posts->delete();
+?>
+</pre>
+Silahkan coba jalankan kode diatas dengan browser atau PHP CLI. Maka bisa ditebak, kode diatas akan lancar-lancar saja dan menghasilkan output seperti ini :
+<pre id="code" class="terminal">
+Call method insert .. 
+Call method update .. 
+Call method select .. 
+Call method delete ..
+</pre>
+
+<strong>Multi Implementasi Interface pada Class di PHP</strong>
+<span class="indent"></span>Bila contoh sebelumnya hanya menggunakan satu interface maka sekarang kita akan mencoba menggunakan beberapa interface pada suatu class. Masih dengan kasus yang sama. Mari kita perhatikan contoh kode berikut:
+<pre id="code">
+<span class="tagphpbuka"></span>
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Interface pada sebuah CRUD
+interface Crud {
+    public function insert();
+    public function update();
+    public function select();
+    public function delete();
+}
+
+// Interface Wipe, misalnya untuk fasilitas menghapus semua data, hanya contoh.
+interface Wipe {
+    public function wipe();
+}
+
+// Buat class yang mengurusi data Posts, misal artikel.
+// Disini kita implement Crud dan Wipe, tinggal gabungkan dengan koma saja.
+class Posts implements Crud, Wipe {
+    public function insert() {
+        echo "Call method insert ..\n";
+    }
+
+    public function update() {
+        echo "Call method update ..\n";
+    }
+
+    public function select() {
+        echo "Call method select ..\n";
+    }
+
+    public function delete() {
+        echo "Call method delete ..\n";
+    }
+
+    // Wajib membuat method wipe, karena sudah di implement.
+    public function wipe() {
+        echo "Call method wipe ..\n";
+    }
+}
+
+$posts = new Posts;
+$posts->insert();
+$posts->update();
+$posts->select();
+$posts->delete();
+$posts->wipe();
+<span class="tagphptutup"></span>
+</pre>
+Pada potongan kode diatas, kita hanya perlu memisahkan dengan tanda koma untuk menggunakan beberapa interface . Dan setiap method di dalam interface yang berbeda harus diimplementasikan semuanya di dalam class yang menggunakannya.
+
+Hasil kode diatas adalah :
+<pre id="code" class="terminal">
+Call method insert .. 
+Call method update .. 
+Call method select .. 
+Call method delete .. 
+Call method wipe ..
+</pre>
+Bisa dipahami? mudah bukan :) .
+                </pre>
+            </li>
+
+            <li class="boxmateri" id="lain1">
+                <h2>Implode</h2>
+                <pre>
+<span class="indent"></span>Implode adalah fungsi built-in PHP yang digunakan untuk mengubah elemen array menjadi string.
+Cara penulisan:
+implode(separator,array);
+Keterangan:
+- separator: untuk memisahkan string (optional)
+- array: adalah array yang hendak di ubah
+            </pre>
+            </li>
+            <li class="boxmateri" id="lain2">
+                <h2>Function Time()</h2>
+                <pre>
+<span class="indent"></span>Fungsi time() adalah bawaan dari php, yang jika kita memanggilnya maka akan mengembalikan return value Waktu saat ini dalam satuan detik, dimana waktu tersebut dimulai sejak January 1 1970 pukul 00:00.
+                </pre>
+            </li>
+            <li class="boxmateri" id="lain3">
+                <h2>Error Reporting</h2>
+                <pre>
+Fungsi :
+
+<pre id="code">
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+</pre>
+<span class="indent"></span>Masing masing untuk mengatur agar PHP mengeluarkan semua jenis error, warning, dst. Supaya memudahkan kita untuk debugging. Pada komputer tertentu biasanya settingan PHP tidak mengeluarkan pesan error. Sehingga sulit belajar, ketika tidak ada error.
+                </pre>
+            </li>
+        </ul>
+
+        <div class="backtotop"><a href="#title">To Top</a></div>
+        <script>
+            const tagphpbuka = document.querySelectorAll("span.tagphpbuka");
+            tagphpbuka.forEach((tagphpbukasatuan) => {
+                tagphpbukasatuan.innerHTML = "&#60;&#63;php";
+            });
+            const tagphptutup = document.querySelectorAll("span.tagphptutup");
+            tagphptutup.forEach((tagphptutupsatuan) => {
+                tagphptutupsatuan.innerHTML = "&#63;&#62;";
+            });
+            const taghtmlbuka = document.querySelectorAll("span.taghtmlbuka");
+            taghtmlbuka.forEach((taghtmlbukasatuan) => {
+                taghtmlbukasatuan.innerHTML = "&#60;";
+            });
+            const taghtmltutup = document.querySelectorAll("span.taghtmltutup");
+            taghtmltutup.forEach((taghtmltutupsatuan) => {
+                taghtmltutupsatuan.innerHTML = "&#62;";
+            });
+            const tagbr = document.querySelectorAll("span.tagbr");
+            tagbr.forEach((tagbrsatuan) => {
+                tagbrsatuan.innerHTML = "&#60;br&#62;";
+            });
+        </script>
+    </body>
+</html>
