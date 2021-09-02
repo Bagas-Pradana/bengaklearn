@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    --primary: lightblue;
+}
+
+html {
+    scroll-behavior: smooth;
+    transition: all 0.5s ease;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--primary);
+    /* overflow-x: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+strong {
+    font-size: 1.15rem;
+    color: black;
+}
+
+div a.backtotop {
+    height: 2.5rem;
+    padding: 0 1rem;
+    z-index: 10;
+    line-height: 2.5rem;
+    background-color: #6610f2;
+    color: white;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    border-radius: calc(2.5rem / 2);
+    border: 1px solid white;
+    transition: all 0.3s ease-in-out;
+}
+
+div a.backtotop:hover {
+    background-color: violet;
+    color: white;
+}
+
+ul#listitem {
+    width: 90%;
+    height: 85vh;
+    overflow-x: auto;
+    padding: 1.5rem 3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 0 3rem;
+    line-height: 1.75rem;
+}
+
+ul#listitem li {
+    width: 25%;
+    padding-right: 1.5rem;
+    word-wrap: break-word;
+    color: black;
+    list-style: disc;
+}
+
+ul#listitem li.sublistitem {
+    list-style: none;
+}
+
+ul#listitem li a:hover {
+    color: red;
+}
+
+ul#listboxmateri {
+    list-style: none;
+}
+
+ul#listboxmateri li.listboxitem {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 0 10rem;
+    padding: 0 0 1rem;
+}
+
+ul#listboxmateri li.listboxitem h2,
+h1#title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    display: block;
+    padding: 1rem 0;
+}
+ul#listboxmateri li.listboxitem pre {
+    width: 1350px;
+    background-color: aliceblue;
+    overflow-x: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: justify;
+    white-space: pre-wrap;
+    color: black !important;
+}
+
+ul#listboxmateri li.listboxitem pre img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 950px;
+    border-radius: 10px;
+    border: 3px solid var(--primary);
+}
+
+ul#listboxmateri li.listboxitem pre pre.code {
+    width: 85%;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre;
+    margin: 1rem auto;
+    border: 3px solid var(--primary);
+    border-left: 10px solid var(--primary);
+    background-color: #00303d;
+    overflow-x: auto;
+    color: white !important;
+}
+
+ul#listboxmateri li.listboxitem pre pre.terminal {
+    width: 85%;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+    margin: 1rem auto;
+    border: 3px solid var(--primary);
+    border-left: 10px solid var(--primary);
+    background-color: #00303d;
+    overflow-x: auto;
+    color: white !important;
+    text-align: justify;
+}
+
+ul#listboxmateri li.listboxitem pre ul.list {
+    list-style: disc;
+    margin-left: 2rem;
+}
+
+span.indent {
+    margin: 0 1.5rem 0 0;
+}
+
+@media screen and (max-width: 1350px) {
+    ul#listboxmateri li.listboxitem pre {
+        width: 1100px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    ul#listboxmateri li.listboxitem pre {
+        width: 975px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    ul#listboxmateri li.listboxitem pre {
+        width: 725px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    ul#listboxmateri li.listboxitem pre {
+        width: 550px;
+    }
+
+    ul#listitem li {
+        width: 50%;
+    }
+
+    ul#listboxmateri li.listboxitem pre img {
+        max-width: 525px;
+    }
+}
+@media screen and (max-width: 576px) {
+    ul#listitem {
+        padding: 0.75rem 1.5rem;
+    }
+
+    ul#listboxmateri li.listboxitem pre pre.code {
+        font-size: 0.8rem;
+    }
+
+    ul#listboxmateri li.listboxitem pre {
+        width: 450px;
+    }
+
+    ul#listboxmateri li.listboxitem pre img {
+        max-width: 300px;
+    }
+
+    div a.backtotop {
+        right: 20px;
+        bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    ul#listboxmateri li.listboxitem pre {
+        width: 375px;
+    }
+    ul#listitem li {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 400px) {
+    ul#listboxmateri li.listboxitem pre {
+        width: 350px;
+    }
+}
