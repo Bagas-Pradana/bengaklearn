@@ -33,6 +33,10 @@ body {
 a {
     text-decoration: none;
 }
+h4 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+}
 
 strong {
     font-size: 1.15rem;
